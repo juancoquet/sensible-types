@@ -68,7 +68,7 @@ def test_lt_positive_int():
     b = PositiveInt(1)
     assert b < a
 
-    
+
 def test_lt_int():
     a = PositiveInt(2)
     b = 1
@@ -81,4 +81,13 @@ def test_le_positive_int():
     assert b <= a
     c = PositiveInt(1)
     d = PositiveInt(1)
+    assert d <= c
+
+
+def test_le_int():
+    a = PositiveInt(2)
+    b = 1
+    assert b <= a
+    c = PositiveInt(1)
+    d = 1
     assert d <= c
