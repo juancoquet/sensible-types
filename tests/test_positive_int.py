@@ -26,3 +26,9 @@ def test_init_from_float_whole_number_gt_0_succeeds():
 def test_eq_to_int():
     i = PositiveInt(1)
     assert i == 1
+
+
+def test_eq_to_invalid_type_not_implemented():
+    i = PositiveInt(1)
+    res = i == "1"
+    assert res == False  # noqa

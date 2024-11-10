@@ -7,4 +7,6 @@ class PositiveInt:
         self.__value = value
 
     def __eq__(self, other: object):
+        if not isinstance(other, int):
+            return NotImplemented
         return self.__value == other
