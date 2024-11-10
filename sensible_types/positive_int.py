@@ -203,3 +203,7 @@ class PositiveInt:
         if not isinstance(other, (int, float)):
             return NotImplemented
         return int(other // self.__value)
+
+    def __ifloordiv__(self, other: Self) -> Self:
+        self.__value //= other.__value
+        return self
