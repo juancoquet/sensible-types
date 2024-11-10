@@ -194,4 +194,5 @@ class PositiveInt:
         raise TypeError("In-place division cannot be performed on a PositiveInt.")
 
     def __floordiv__(self, other: Self) -> int:
-        return self.__value // other.__value
+        other_val = other.__value if isinstance(other, PositiveInt) else other
+        return self.__value // other_val

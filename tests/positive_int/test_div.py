@@ -69,3 +69,10 @@ def test_pos_int_floordiv_pos_int_returns_int():
     res = a // b
     assert isinstance(res, int)
     assert res == 2
+
+def test_pos_int_floordiv_int_returns_int():
+    a = PositiveInt(5)
+    b = 2
+    res = a // b
+    assert isinstance(res, int)
+    assert res == 2
