@@ -1,4 +1,4 @@
-from typing import List, Self, Sequence, Tuple, TypeVar, Union, overload
+from typing import Any, List, Self, Sequence, Tuple, TypeVar, Union, overload
 
 T = TypeVar("T")
 IF = TypeVar("IF", int, float)
@@ -189,3 +189,6 @@ class PositiveInt:
         if not isinstance(other, (int, float)):
             return NotImplemented
         return other / self.__value
+
+    def __itruediv__(self, _: Any):
+        raise TypeError("In-place division cannot be performed on a PositiveInt.")
