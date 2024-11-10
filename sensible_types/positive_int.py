@@ -60,6 +60,9 @@ class PositiveInt:
 
     # TODO:
     # type casts
+    # mod
+    # pow
+
     def __index__(self) -> int:
         return self.__value
 
@@ -73,11 +76,17 @@ class PositiveInt:
             return PositiveInt(self.__value + other.__value)
         return self.__value + other
 
+    def __repr__(self) -> str:
+        return f"PositiveInt({self.__value})"
+
     def __str__(self) -> str:
         return str(self.__value)
 
-    def __repr__(self) -> str:
-        return f"PositiveInt({self.__value})"
+    def __int__(self) -> int:
+        return self.__value
+
+    def __float__(self) -> float:
+        return float(self.__value)
 
     def __radd__(self, other: IF) -> IF:
         if not isinstance(other, (int, float)):
