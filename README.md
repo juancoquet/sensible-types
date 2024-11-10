@@ -30,7 +30,7 @@ def foo(a: uint):
 
 But of course, Python does not have an unsigned integer type.
 
-(Type-driven design)[https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/] leads to more correct, reliable software, where tests only have to focus on verifying that your business logic works rather than verifying that your inputs are valid. To borrow a phrase from Rust 🦀, it makes invalid states unrepresentable.
+[Type-driven design](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/) leads to more correct, reliable software, where tests only have to focus on verifying that your business logic works rather than verifying that your inputs are valid. To borrow a phrase from Rust 🦀, it makes invalid states unrepresentable.
 
 This package aims to provide new primitive types with additional constraints that are commonly required.
 
@@ -42,6 +42,6 @@ You're right.
 
 But that doesn't mean that _you_, the developer, should not care about the correctness and reliability of your program.
 
-You should be using strict type checking tools like (Pyright)[https://github.com/microsoft/pyright] to analyse your code. Without such a tool, all the type-driven design in the world won't save you from Python.
+You should be using strict type checking tools like [Pyright](https://github.com/microsoft/pyright) to analyse your code. Without such a tool, all the type-driven design in the world won't save you from Python.
 
 There still won't be anything stopping your program from running if you pass in an incorrect type, but at least you'll see errors in you IDE if you've written incorrect code.
