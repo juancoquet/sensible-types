@@ -14,6 +14,7 @@ def test_sequence_indexing():
     a = PositiveInt(0)
     assert some_list[a] == 1
 
+
 def test_hash():
     a = PositiveInt(1)
     b = PositiveInt(2)

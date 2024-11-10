@@ -73,6 +73,12 @@ class PositiveInt:
             return PositiveInt(self.__value + other.__value)
         return self.__value + other
 
+    def __str__(self) -> str:
+        return str(self.__value)
+
+    def __repr__(self) -> str:
+        return f"PositiveInt({self.__value})"
+
     def __radd__(self, other: IF) -> IF:
         if not isinstance(other, (int, float)):
             return NotImplemented
