@@ -192,3 +192,6 @@ class PositiveInt:
 
     def __itruediv__(self, _: Any):
         raise TypeError("In-place division cannot be performed on a PositiveInt.")
+
+    def __floordiv__(self, other: Self) -> int:
+        return self.__value // other.__value

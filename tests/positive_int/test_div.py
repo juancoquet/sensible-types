@@ -61,3 +61,11 @@ def test_pos_int_itruediv_pos_int_raises():
     b = PositiveInt(2)
     with pytest.raises(TypeError):
         a /= b  # type: ignore
+
+
+def test_pos_int_floordiv_pos_int_returns_int():
+    a = PositiveInt(5)
+    b = PositiveInt(2)
+    res = a // b
+    assert isinstance(res, int)
+    assert res == 2
