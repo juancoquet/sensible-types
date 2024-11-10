@@ -140,7 +140,6 @@ class PositiveInt:
     def __mul__(self, other: Y) -> Y:
         if not isinstance(other, (int, float, PositiveInt, Sequence)):
             return NotImplemented
-        other_val = other.__value if isinstance(other, PositiveInt) else other
         if isinstance(other, PositiveInt):
             return PositiveInt(self.__value * other.__value)
         return self.__value * other  # type: ignore
@@ -158,4 +157,4 @@ class PositiveInt:
     @overload
     def __rmul__(self, other: Tuple[X]) -> Tuple[X]: ...
     def __rmul__(self, other: Y) -> Y:
-        return other * self.__value
+        return other * self.__value  # type: ignore
