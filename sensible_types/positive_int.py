@@ -59,11 +59,9 @@ class PositiveInt:
         return self.__value > other_val
 
     # TODO:
-    # lt
-    # gt
-    # lte
-    # gte
-    # for i in range(PostiveInt)
+    # type casts
+    def __index__(self) -> int:
+        return self.__value
 
     def __add__(self, other: IFP) -> IFP:
         if not isinstance(other, (int, float, PositiveInt)):
