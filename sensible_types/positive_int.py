@@ -9,6 +9,13 @@ IFPS = TypeVar("IFPS", int, float, "PositiveInt", Sequence)
 
 @total_ordering
 class PositiveInt:
+    """
+    An `int`, but positive.
+
+    Anywhere a `PositiveInt` appears in your program, you have the guarantee that it won't have a
+    value less than 0 regardless of any mutation that may have occurred.
+    """
+
     def __init__(self, value: Union[int, float], floor: bool = True):
         """
         Create a new instance of `PostiveInt`.
@@ -64,13 +71,6 @@ class PositiveInt:
     def __hash__(self) -> int:
         return hash(self.__value)
 
-    def __add__(self, other: IFP) -> IFP:
-        if not isinstance(other, (int, float, PositiveInt)):
-            return NotImplemented
-        if isinstance(other, PositiveInt):
-            return PositiveInt(self.__value + other.__value)
-        return self.__value + other
-
     def __repr__(self) -> str:
         return f"PositiveInt({self.__value})"
 
@@ -82,6 +82,13 @@ class PositiveInt:
 
     def __float__(self) -> float:
         return float(self.__value)
+
+    def __add__(self, other: IFP) -> IFP:
+        if not isinstance(other, (int, float, PositiveInt)):
+            return NotImplemented
+        if isinstance(other, PositiveInt):
+            return PositiveInt(self.__value + other.__value)
+        return self.__value + other
 
     def __radd__(self, other: IF) -> IF:
         if not isinstance(other, (int, float)):
@@ -133,7 +140,7 @@ class PositiveInt:
                 "Cannot perform in-place subtraction on a PositiveInt if the subtracted value is "
                 f"not a whole number. Subtracted value: {other_val}"
             )
-        if other_val > self.__value:
+        if self.__value - other_val < 0:
             raise ValueError(
                 "Cannot perform in-place subtraction on a PositiveInt if the result would be a "
                 "negative number. "
