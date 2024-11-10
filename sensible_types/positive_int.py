@@ -159,5 +159,11 @@ class PositiveInt:
 
     def __imul__(self, other: T) -> Self:
         other_val = other.__value if isinstance(other, PositiveInt) else other
+        if self.__value * other_val < 0:
+            raise ValueError(
+                "Cannot perform in-place multiplication on a PositiveInt if the result would be "
+                "negative number. "
+                f"PositiveInt value: {self.__value}, other value: {other_val}."
+            )
         self.__value *= int(other_val)
         return self
