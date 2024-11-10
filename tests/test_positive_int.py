@@ -61,3 +61,9 @@ def test_eq_to_invalid_float():
 def test_eq_to_invalid_type_not_implemented():
     i = PositiveInt(1)
     assert not i == "1"
+
+
+def test_eq_to_postive_int_true():
+    i = PositiveInt(1)
+    j = PositiveInt(1)
+    assert i == j

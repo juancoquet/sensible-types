@@ -10,7 +10,7 @@ class PositiveInt:
 
         Parameters:
         - `value: int | float` - The `value` to be converted into a `PositiveInt`. Must be >= 0.
-        - `floor: bool` - Whether or not to perform a floor operation on the input `value`. Defaults 
+        - `floor: bool` - Whether or not to perform a floor operation on the input `value`. Defaults
           to `True`.
 
         Raises:
@@ -31,6 +31,6 @@ class PositiveInt:
         self.__value = int(value)
 
     def __eq__(self, other: object):
-        if not isinstance(other, (int, float)):
+        if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
         return self.__value == other
