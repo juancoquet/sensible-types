@@ -58,11 +58,6 @@ class PositiveInt:
         other_val = other.__value if isinstance(other, PositiveInt) else other
         return self.__value > other_val
 
-    # TODO:
-    # type casts
-    # mod
-    # pow
-
     def __index__(self) -> int:
         return self.__value
 
@@ -232,3 +227,7 @@ class PositiveInt:
             )
         self.__value //= other_val
         return self
+
+    # TODO:
+    # mod, imod, rmod
+    # pow, ipow, rpow
