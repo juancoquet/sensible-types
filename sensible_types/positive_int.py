@@ -157,4 +157,7 @@ class PositiveInt:
     def __rmul__(self, other: Y) -> Y:
         return other * self.__value  # type: ignore
 
-    # def __imul__(self, other: T)
+    def __imul__(self, other: T) -> Self:
+        other_val = other.__value if isinstance(other, PositiveInt) else other
+        self.__value *= other_val
+        return self
