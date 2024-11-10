@@ -180,3 +180,6 @@ class PositiveInt:
             return NotImplemented
         other_val = other.__value if isinstance(other, PositiveInt) else other
         return self.__value / other_val
+
+    def __rtruediv__(self, other: int) -> float:
+        return other / self.__value
