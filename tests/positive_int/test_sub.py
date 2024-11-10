@@ -47,11 +47,26 @@ def test_pos_int_sub_invalid_type_raises():
         a - b  # type: ignore
 
 
+def test_isub_valid_pos_int_succeeds():
+    a = PositiveInt(2)
+    b = PositiveInt(1)
+    a -= b
+    assert isinstance(a, PositiveInt)
+    assert a == 1
+
+
 def test_isub_pos_int_that_would_cause_neg_value_raises():
     a = PositiveInt(1)
     b = PositiveInt(2)
     with pytest.raises(ValueError):
         a -= b
+
+
+# def test_isub_int_that_would_cause_neg_value_raises():
+#     a = PositiveInt(1)
+#     b = 2
+#     with pytest.raises(ValueError):
+#         a -= b
 
 
 # TODO: int/float - PositiveInt
