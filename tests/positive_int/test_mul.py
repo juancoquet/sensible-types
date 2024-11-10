@@ -110,3 +110,11 @@ def test_pos_int_imul_valid_int_returns_pos_int():
     a *= b
     assert isinstance(a, PositiveInt)
     assert a == 6
+
+
+def test_pos_int_imul_valid_float_returns_pos_int():
+    a = PositiveInt(2)
+    b = 3.0
+    a *= b
+    assert isinstance(a, PositiveInt)
+    assert a == 6.0

@@ -120,7 +120,7 @@ class PositiveInt:
                 "negative number. "
                 f"PositiveInt value: {self.__value}, other value: {other_val}."
             )
-        self.__value -= other_val
+        self.__value -= int(other_val)
         return self
 
     @overload
@@ -159,5 +159,5 @@ class PositiveInt:
 
     def __imul__(self, other: T) -> Self:
         other_val = other.__value if isinstance(other, PositiveInt) else other
-        self.__value *= other_val
+        self.__value *= int(other_val)
         return self
