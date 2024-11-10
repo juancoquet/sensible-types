@@ -47,3 +47,10 @@ def test_pos_int_truediv_invalid_type_raises():
     b = "2.0"
     with pytest.raises(TypeError):
         a / b  # type: ignore
+
+
+def test_invaid_type_truediv_pos_int_raises():
+    a = PositiveInt(6)
+    b = "2.0"
+    with pytest.raises(TypeError):
+        b / a  # type: ignore
