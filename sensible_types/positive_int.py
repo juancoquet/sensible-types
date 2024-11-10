@@ -51,9 +51,12 @@ class PositiveInt:
         return self.__value == other
 
     # TODO:
-    # div
-    # idiv
-    # rdiv
+    # truediv
+    # itruediv
+    # rtruediv
+    # floordiv
+    # ifloordiv
+    # rfloordiv
     # lt
     # gt
     # lte
@@ -171,3 +174,6 @@ class PositiveInt:
             )
         self.__value *= int(other_val)
         return self
+
+    def __truediv__(self, other: Self) -> float:
+        return self.__value / other.__value
