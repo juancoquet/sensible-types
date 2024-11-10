@@ -1,4 +1,4 @@
-from typing import Self, TypeVar, Union
+from typing import Self, TypeVar, Union, overload
 
 T = TypeVar("T", int, float, "PositiveInt")
 
@@ -50,6 +50,7 @@ class PositiveInt:
     # TODO: sub, mul, div, iadd, isub, imul, idiv lt, gt, lte, gte, for i in range(PostiveInt)
 
     def __add__(self, other: T) -> T:
+        # TODO: int/float + PositiveInt
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
         if isinstance(other, PositiveInt):
@@ -65,9 +66,17 @@ class PositiveInt:
         self.__value += other.__value
         return self
 
-    def __sub__(self, other: T):  # TODO: return type
+    @overload
+    def __sub__(self, other: int) -> int: ...
+    @overload
+    def __sub__(self, other: float) -> float: ...
+    @overload
+    def __sub__(self, other: Self) -> int: ...
+
+    def __sub__(self, other: T) -> Union[int, float]:
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
         if isinstance(other, PositiveInt):
             return self.__value - other.__value
         return self.__value - other
+        # TODO: int/float - PositiveInt
