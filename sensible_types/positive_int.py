@@ -9,18 +9,14 @@ IFPS = TypeVar("IFPS", int, float, "PositiveInt", Sequence)
 
 @total_ordering
 class PositiveInt:
-    """
-    An `int`, but positive.
-
-    Anywhere a `PositiveInt` appears in your program, you have the guarantee that it won't have a
-    value less than 0 regardless of any mutation that may have occurred.
-    """
-
     def __init__(self, value: Union[int, float], floor: bool = True):
         """
-        Create a new instance of `PostiveInt`.
+        An `int`, but positive.
 
-        By default non-integer input values will be floored, much like how `int(1.5)` behaves. E.g.
+        Anywhere a `PositiveInt` appears in your program, you have the guarantee that it won't have a
+        value less than 0 regardless of any mutation that may have occurred.
+
+        By default non-integer init values will be floored, much like how `int(1.5)` behaves. E.g.
         `PositiveInt(1.5) == 1  # True`.
         If you do not wish for the input `value` to be floored, passing `floor = False` will raise a
         `ValueError` if an invalid (non-integer) `value` is passed.
