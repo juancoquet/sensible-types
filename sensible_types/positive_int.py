@@ -75,6 +75,12 @@ class PositiveInt:
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
         other_val = other.__value if isinstance(other, PositiveInt) else other
+        if self.__value + other_val < 0:
+            raise ValueError(
+                "Cannot perform in-place addition on a PositiveInt if the result would be a "
+                "negative number. "
+                f"PositiveInt value: {self.__value}, other value: {other_val}."
+            )
         self.__value += other_val
         return self
 
@@ -105,7 +111,7 @@ class PositiveInt:
             raise ValueError(
                 "Cannot perform in-place subtraction on a PositiveInt if the result would be a "
                 "negative number. "
-                f"PositiveInt value: {self.__value} subtracted value: {other_val}."
+                f"PositiveInt value: {self.__value}, other value: {other_val}."
             )
         self.__value -= other_val
         return self

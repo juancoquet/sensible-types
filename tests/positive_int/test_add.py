@@ -103,6 +103,13 @@ def test_iadd_valid_float_succeeds():
     assert a == 3
 
 
+def test_iadd_int_raises_if_would_be_negative_value():
+    a = PositiveInt(1)
+    with pytest.raises(ValueError):
+        a += -2
+
+# todo: invalid float
+
 def test_iadd_pos_int_to_int_returns_int():
     a = 1
     b = PositiveInt(2)
