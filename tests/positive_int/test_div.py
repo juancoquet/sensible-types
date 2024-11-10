@@ -128,3 +128,10 @@ def test_pos_int_ifloordiv_pos_int_returns_pos_int():
     c //= d
     assert isinstance(c, PositiveInt)
     assert c == 0
+
+def test_pos_int_ifloordiv_valid_int_returns_pos_int():
+    a = PositiveInt(5)
+    b = 2
+    a //= b
+    assert isinstance(a, PositiveInt)
+    assert a == 2
