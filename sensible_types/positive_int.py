@@ -103,7 +103,7 @@ class PositiveInt:
             return self.__value - other.__value
         return self.__value - other
 
-    def __rsub__(self, other: float) -> float:
+    def __rsub__(self, other: U) -> U:
         return other - self.__value
 
     def __isub__(self, other: Union[int, float, Self]) -> Self:
