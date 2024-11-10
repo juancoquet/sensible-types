@@ -50,13 +50,10 @@ class PositiveInt:
             return NotImplemented
         return self.__value == other
 
+    def __gt__(self, other: Self) -> bool:
+        return self.__value > other.__value
+
     # TODO:
-    # truediv
-    # itruediv
-    # rtruediv
-    # floordiv
-    # ifloordiv
-    # rfloordiv
     # lt
     # gt
     # lte
