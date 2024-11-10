@@ -112,3 +112,12 @@ def test_le_int():
     c = PositiveInt(1)
     d = 1
     assert d <= c
+
+
+def test_le_float():
+    a = PositiveInt(2)
+    b = 1.0
+    assert b <= a
+    c = PositiveInt(1)
+    d = 1.0
+    assert d <= c
