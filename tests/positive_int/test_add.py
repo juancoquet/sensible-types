@@ -56,3 +56,8 @@ def test_iadd_to_pos_int_succeeds():
     assert isinstance(a, PositiveInt)
     assert a == 3
 
+
+def test_iadd_to_int_raises():
+    a = PositiveInt(1)
+    with pytest.raises(TypeError):
+        a += 2
