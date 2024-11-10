@@ -32,3 +32,11 @@ def test_add_to_invalid_type_raises():
     b = "2"
     with pytest.raises(TypeError):
         a + b  # type: ignore
+
+
+def test_add_to_neg_int_returns_neg_int():
+    a = PositiveInt(1)
+    b = -2
+    res = a + b
+    assert isinstance(res, int)
+    assert res == -1
