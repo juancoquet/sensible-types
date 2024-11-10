@@ -1,13 +1,13 @@
-from typing import Iterable, List, Self, Sequence, Tuple, TypeVar, Union, overload
+from typing import List, Self, Sequence, Tuple, TypeVar, Union, overload
 
-T = TypeVar("T", int, float, "PositiveInt")
-U = TypeVar("U", int, float)
-X = TypeVar("X")
-Y = TypeVar("Y", int, float, "PositiveInt", Sequence)
+T = TypeVar("T")
+IF = TypeVar("IF", int, float)
+IFP = TypeVar("IFP", int, float, "PositiveInt")
+IFPS = TypeVar("IFPS", int, float, "PositiveInt", Sequence)
 
 
 class PositiveInt:
-    def __init__(self, value: int | float, floor: bool = True):
+    def __init__(self, value: Union[int, float], floor: bool = True):
         """
         Create a new instance of `PostiveInt`.
 
@@ -51,7 +51,6 @@ class PositiveInt:
         return self.__value == other
 
     # TODO:
-    # imul
     # div
     # idiv
     # rdiv
@@ -61,17 +60,17 @@ class PositiveInt:
     # gte
     # for i in range(PostiveInt)
 
-    def __add__(self, other: T) -> T:
+    def __add__(self, other: IFP) -> IFP:
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
         if isinstance(other, PositiveInt):
             return PositiveInt(self.__value + other.__value)
         return self.__value + other
 
-    def __radd__(self, other: U) -> U:
+    def __radd__(self, other: IF) -> IF:
         return other + self.__value
 
-    def __iadd__(self, other: T) -> Self:
+    def __iadd__(self, other: IFP) -> Self:
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
         other_val = other.__value if isinstance(other, PositiveInt) else other
@@ -95,14 +94,14 @@ class PositiveInt:
     def __sub__(self, other: float) -> float: ...
     @overload
     def __sub__(self, other: Self) -> int: ...
-    def __sub__(self, other: T) -> Union[int, float]:
+    def __sub__(self, other: IFP) -> Union[int, float]:
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
         if isinstance(other, PositiveInt):
             return self.__value - other.__value
         return self.__value - other
 
-    def __rsub__(self, other: U) -> U:
+    def __rsub__(self, other: IF) -> IF:
         return other - self.__value
 
     def __isub__(self, other: Union[int, float, Self]) -> Self:
@@ -132,10 +131,10 @@ class PositiveInt:
     @overload
     def __mul__(self, other: str) -> str: ...
     @overload
-    def __mul__(self, other: List[X]) -> List[X]: ...
+    def __mul__(self, other: List[T]) -> List[T]: ...
     @overload
-    def __mul__(self, other: Tuple[X]) -> Tuple[X]: ...
-    def __mul__(self, other: Y) -> Y:
+    def __mul__(self, other: Tuple[T]) -> Tuple[T]: ...
+    def __mul__(self, other: IFPS) -> IFPS:
         if not isinstance(other, (int, float, PositiveInt, Sequence)):
             return NotImplemented
         if isinstance(other, PositiveInt):
@@ -151,10 +150,10 @@ class PositiveInt:
     @overload
     def __rmul__(self, other: str) -> str: ...
     @overload
-    def __rmul__(self, other: List[X]) -> List[X]: ...
+    def __rmul__(self, other: List[T]) -> List[T]: ...
     @overload
-    def __rmul__(self, other: Tuple[X]) -> Tuple[X]: ...
-    def __rmul__(self, other: Y) -> Y:
+    def __rmul__(self, other: Tuple[T]) -> Tuple[T]: ...
+    def __rmul__(self, other: IFPS) -> IFPS:
         return other * self.__value  # type: ignore
 
     def __imul__(self, other: Union[int, float, Self]) -> Self:
