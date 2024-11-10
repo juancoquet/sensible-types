@@ -52,7 +52,7 @@ class PositiveInt:
             return NotImplemented
         return self.__value == other
 
-    def __gt__(self, other: Union[int, Self]) -> bool:
+    def __gt__(self, other: Union[int, float, Self]) -> bool:
         other_val = other.__value if isinstance(other, PositiveInt) else other
         return self.__value > other_val
 

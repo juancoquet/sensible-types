@@ -45,6 +45,12 @@ def test_gt_int():
     assert a > b
 
 
+def test_gt_float():
+    a = PositiveInt(2)
+    b = 1.0
+    assert a > b
+
+
 def test_ge_positive_int():
     a = PositiveInt(2)
     b = PositiveInt(1)
