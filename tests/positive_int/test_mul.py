@@ -134,8 +134,22 @@ def test_pos_int_imul_neg_float_raises():
         a *= b
 
 
-def test_pos_int_imul_invalid_type_raises():
+def test_pos_int_imul_str_raises():
     a = PositiveInt(2)
     b = "3"
+    with pytest.raises(TypeError):
+        a *= b
+
+
+def test_pos_int_imul_list_raises():
+    a = PositiveInt(2)
+    b = ["3"]
+    with pytest.raises(TypeError):
+        a *= b
+
+
+def test_pos_int_imul_tuple_raises():
+    a = PositiveInt(2)
+    b = ("3",)
     with pytest.raises(TypeError):
         a *= b
