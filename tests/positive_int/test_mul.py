@@ -43,7 +43,7 @@ def test_pos_int_mul_neg_float_returns_neg_float():
     assert res == -6.0
 
 
-def test_pos_int_mul_invalid_type_raises():
+def test_pos_int_mul_str_returns_str():
     a = PositiveInt(2)
     b = "3"
     res = a * b
@@ -63,3 +63,10 @@ def test_pos_int_mul_tuple_returns_repeated_tuple():
     b = ("3",)
     res = a * b
     assert res == ("3", "3")
+
+
+def test_pos_int_mul_invalid_type_raises():
+    a = PositiveInt(2)
+    b = {}
+    with pytest.raises(TypeError):
+        a * b  # type: ignore
