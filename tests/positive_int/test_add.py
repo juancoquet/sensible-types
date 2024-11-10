@@ -18,12 +18,21 @@ def test_add_int_to_pos_int_returns_int():
     assert isinstance(res, int)
     assert res == 3
 
+
 def test_add_pos_int_to_int_returns_int():
     a = PositiveInt(1)
     b = 2
     res = b + a
     assert isinstance(res, int)
     assert res == 3
+
+
+def test_add_pos_int_to_float_returns_float():
+    a = PositiveInt(1)
+    b = 2.0
+    res = b + a
+    assert isinstance(res, float)
+    assert res == 3.0
 
 
 def test_add_float_to_pos_int_returns_float():
