@@ -71,6 +71,13 @@ def test_isub_valid_float_succeeds():
     assert a == 1
 
 
+def test_isub_to_0_succeeds():
+    a = PositiveInt(1)
+    a -= 1
+    assert isinstance(a, PositiveInt)
+    assert a == 0
+
+
 def test_isub_invalid_float_raises():
     a = PositiveInt(2)
     b = 1.5
@@ -106,5 +113,4 @@ def test_isub_invalid_type_raises():
         a -= b  # type: ignore
 
 
-# TODO: isub to 0
 # TODO: int/float - PositiveInt
