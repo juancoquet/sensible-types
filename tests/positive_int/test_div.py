@@ -109,6 +109,7 @@ def test_pos_int_floordiv_invalid_type_raises():
     with pytest.raises(TypeError):
         a // b  # type: ignore
 
+
 def test_invalid_type_floordiv_posint_raises():
     a = PositiveInt(5)
     b = "3.0"
@@ -122,3 +123,8 @@ def test_pos_int_ifloordiv_pos_int_returns_pos_int():
     a //= b
     assert isinstance(a, PositiveInt)
     assert a == 2
+    c = PositiveInt(5)
+    d = PositiveInt(6)
+    c //= d
+    assert isinstance(c, PositiveInt)
+    assert c == 0
