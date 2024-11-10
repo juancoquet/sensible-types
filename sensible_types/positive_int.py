@@ -42,7 +42,7 @@ class PositiveInt:
             raise ValueError("PositiveInt cannot be created from Infinity.")
         self.__value = int(value)
 
-    def __eq__(self, other: object):
+    def __eq__(self, other: object) -> bool:
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
         return self.__value == other
@@ -54,3 +54,12 @@ class PositiveInt:
         if isinstance(other, PositiveInt):
             return PositiveInt(self.__value + other.__value)
         return self.__value + other
+
+    def __iadd__(self, other: Self) -> Self:
+        if not isinstance(other, PositiveInt):
+            raise TypeError(
+                "PositiveInt in-place addition is only supported with another PositiveInt. "
+                f"Type passed: {type(other)}"
+            )
+        self.__value += other.__value
+        return self

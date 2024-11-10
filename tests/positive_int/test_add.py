@@ -48,3 +48,11 @@ def test_add_to_neg_float_returns_neg_float():
     res = a + b
     assert isinstance(res, float)
     assert res == -1.0
+
+
+def test_iadd_to_pos_int_succeeds():
+    a = PositiveInt(1)
+    a += PositiveInt(2)
+    assert isinstance(a, PositiveInt)
+    assert a == 3
+
