@@ -185,7 +185,7 @@ class PositiveInt:
         other_val = other.__value if isinstance(other, PositiveInt) else other
         return self.__value / other_val
 
-    def __rtruediv__(self, other: Union[int, float, Self]) -> float:
+    def __rtruediv__(self, other: Union[int, float]) -> float:
         if not isinstance(other, (int, float)):
             return NotImplemented
         return other / self.__value
@@ -198,3 +198,8 @@ class PositiveInt:
             return NotImplemented
         other_val = other.__value if isinstance(other, PositiveInt) else other
         return int(self.__value // other_val)
+
+    def __rfloordiv__(self, other: Union[int, float]) -> int:
+        if not isinstance(other, (int, float)):
+            return NotImplemented
+        return int(other // self.__value)
