@@ -49,3 +49,4 @@ class PositiveInt:
     def __add__(self, other: Union[int, float, Self]) -> Union[int, float, "PositiveInt"]:
         if isinstance(other, PositiveInt):
             return PositiveInt(self.__value + other.__value)
+        return self.__value + other
