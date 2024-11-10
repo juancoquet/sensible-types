@@ -86,27 +86,19 @@ class PositiveInt:
     def __isub__(self, other: Union[int, float, Self]) -> Self:
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
-        if isinstance(other, PositiveInt):
-            if other.__value > self.__value:
-                raise ValueError(
-                    "Cannot perform in-place subtraction on a PositiveInt if the result would be a "
-                    "negative number. "
-                    f"PositiveInt value: {self.__value} subtracted value: {other.__value}."
-                )
-            self.__value -= other.__value
-            return self
-        if not other.is_integer():
+        other_val = other.__value if isinstance(other, PositiveInt) else other
+        if not other_val.is_integer():
             raise ValueError(
                 "Cannot perform in-place subtraction on a PositiveInt if the subtracted value is "
-                f"not a whole number. Subtracted value: {other}"
+                f"not a whole number. Subtracted value: {other_val}"
             )
-        if other > self.__value:
+        if other_val > self.__value:
             raise ValueError(
                 "Cannot perform in-place subtraction on a PositiveInt if the result would be a "
                 "negative number. "
-                f"PositiveInt value: {self.__value} subtracted value: {other}."
+                f"PositiveInt value: {self.__value} subtracted value: {other_val}."
             )
-        self.__value -= other
+        self.__value -= other_val
         return self
 
     # TODO: rsub
