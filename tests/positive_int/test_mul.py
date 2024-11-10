@@ -30,5 +30,13 @@ def test_pos_int_mul_float_returns_float():
 def test_pos_int_mul_invalid_type_raises():
     a = PositiveInt(2)
     b = "3"
-    with pytest.raises(TypeError):
-        a * b  # type: ignore
+    res = a * b
+    assert isinstance(res, str)
+    assert res == "33"
+
+
+def test_pos_int_mul_list_returns_repeated_list():
+    a = PositiveInt(2)
+    b = ["3"]
+    res = a * b
+    assert res == ["3", "3"]

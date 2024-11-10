@@ -1,7 +1,9 @@
-from typing import Self, TypeVar, Union, overload
+from typing import Iterable, List, Self, Sequence, Tuple, TypeVar, Union, overload
 
 T = TypeVar("T", int, float, "PositiveInt")
 U = TypeVar("U", int, float)
+X = TypeVar("X")
+Y = TypeVar("Y", int, float, "PositiveInt", Sequence)
 
 
 class PositiveInt:
@@ -124,9 +126,23 @@ class PositiveInt:
         self.__value -= other_val
         return self
 
-    def __mul__(self, other: T) -> T:
-        if not isinstance(other, (int, float, PositiveInt)):
+    @overload
+    def __mul__(self, other: Self) -> Self: ...
+    @overload
+    def __mul__(self, other: int) -> int: ...
+    @overload
+    def __mul__(self, other: float) -> float: ...
+    @overload
+    def __mul__(self, other: str) -> str: ...
+    @overload
+    def __mul__(self, other: List[X]) -> List[X]: ...
+    @overload
+    def __mul__(self, other: Tuple[X]) -> Tuple[X]: ...
+
+    def __mul__(self, other: Y) -> Y:
+        if not isinstance(other, (int, float, PositiveInt, Sequence)):
             return NotImplemented
+        other_val = other.__value if isinstance(other, PositiveInt) else other
         if isinstance(other, PositiveInt):
             return PositiveInt(self.__value * other.__value)
-        return self.__value * other
+        return self.__value * other  # type: ignore
