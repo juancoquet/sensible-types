@@ -125,3 +125,10 @@ def test_pos_int_imul_valid_float_returns_pos_int():
     a *= b
     assert isinstance(a, PositiveInt)
     assert a == 6.0
+
+
+def test_pos_int_imul_neg_float_raises():
+    a = PositiveInt(2)
+    b = -3.0
+    with pytest.raises(ValueError):
+        a *= b
