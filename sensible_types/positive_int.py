@@ -204,7 +204,7 @@ class PositiveInt:
             return NotImplemented
         return int(other // self.__value)
 
-    def __ifloordiv__(self, other: Union[int, Self]) -> Self:
+    def __ifloordiv__(self, other: Union[int, float, Self]) -> Self:
         other_val = other.__value if isinstance(other, PositiveInt) else other
         if self.__value // other_val < 0:
             raise ValueError(
