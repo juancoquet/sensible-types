@@ -1,3 +1,5 @@
+import pytest
+
 from sensible_types import PositiveInt
 
 
@@ -36,6 +38,13 @@ def test_pos_int_sub_float_returns_float():
     res = a - b
     assert isinstance(res, float)
     assert res == -1.0
+
+
+def test_pos_int_sub_invalid_type_raises():
+    a = PositiveInt(2)
+    b = "1"
+    with pytest.raises(TypeError):
+        a - b  # type: ignore
 
 
 # TODO: int/float - PositiveInt

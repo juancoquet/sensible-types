@@ -66,6 +66,8 @@ class PositiveInt:
         return self
 
     def __sub__(self, other: T):  # TODO: return type
+        if not isinstance(other, (int, float, PositiveInt)):
+            return NotImplemented
         if isinstance(other, PositiveInt):
             return self.__value - other.__value
         return self.__value - other
