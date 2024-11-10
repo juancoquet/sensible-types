@@ -1,4 +1,6 @@
-from typing import Self, Union
+from typing import Self, TypeVar, Union
+
+T = TypeVar("T", int, float, "PositiveInt")
 
 
 class PositiveInt:
@@ -46,7 +48,7 @@ class PositiveInt:
         return self.__value == other
 
     # TODO: add, sub, mul, div, iadd, isub, imul, idiv lt, gt, lte, gte, for i in range(PostiveInt)
-    def __add__(self, other: Union[int, float, Self]) -> Union[int, float, "PositiveInt"]:
+    def __add__(self, other: T) -> T:
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
         if isinstance(other, PositiveInt):
