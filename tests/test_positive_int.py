@@ -21,3 +21,8 @@ def test_init_from_negative_int_raises():
 def test_init_from_float_whole_number_gt_0_succeeds():
     i = PositiveInt(2.0)
     assert isinstance(i, PositiveInt)
+
+
+def test_eq_to_int():
+    i = PositiveInt(1)
+    assert i == 1
