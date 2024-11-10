@@ -114,3 +114,11 @@ def test_isub_invalid_type_raises():
 
 
 # TODO: int/float - PositiveInt
+
+
+def test_rsub_float_succeeds():
+    a = 1.0
+    b = PositiveInt(2.0)
+    res = a - b
+    assert isinstance(res, float)
+    assert res == -1.0
