@@ -28,6 +28,11 @@ def test_init_from_non_integer_float_floors():
     assert i == 1
 
 
+def test_init_non_integer_float_with_floor_disabled_raises():
+    with pytest.raises(ValueError):
+        PositiveInt(1.9, floor=False)
+
+
 def test_eq_to_int():
     i = PositiveInt(1)
     assert i == 1
