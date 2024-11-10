@@ -113,9 +113,6 @@ def test_isub_invalid_type_raises():
         a -= b  # type: ignore
 
 
-# TODO: int/float - PositiveInt
-
-
 def test_rsub_float_succeeds():
     a = 1.0
     b = PositiveInt(2)
