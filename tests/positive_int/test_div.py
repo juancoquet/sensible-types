@@ -108,3 +108,9 @@ def test_pos_int_floordiv_invalid_type_raises():
     b = "3.0"
     with pytest.raises(TypeError):
         a // b  # type: ignore
+
+def test_invalid_type_floordiv_posint_raises():
+    a = PositiveInt(5)
+    b = "3.0"
+    with pytest.raises(TypeError):
+        b // a  # type: ignore
