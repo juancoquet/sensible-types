@@ -58,6 +58,7 @@ class PositiveInt:
         return self.__value + other
 
     def __iadd__(self, other: Self) -> Self:
+        # TODO: relax
         if not isinstance(other, PositiveInt):
             raise TypeError(
                 "PositiveInt in-place addition is only supported with another PositiveInt. "
@@ -65,6 +66,8 @@ class PositiveInt:
             )
         self.__value += other.__value
         return self
+
+    # TODO: radd
 
     @overload
     def __sub__(self, other: int) -> int: ...
@@ -79,4 +82,15 @@ class PositiveInt:
         if isinstance(other, PositiveInt):
             return self.__value - other.__value
         return self.__value - other
-        # TODO: int/float - PositiveInt
+
+    def __isub__(self, other: T) -> Self:
+        if isinstance(other, PositiveInt):
+            if other.__value > self.__value:
+                raise ValueError(
+                    "Cannot perform in-place subtraction on a PositiveInt if the result would be a "
+                    "negative number. "
+                    f"PositiveInt value: {self.__value} subtracted value: {other.__value}."
+                )
+            self.__value -= other.__value
+
+    # TODO: rsub
