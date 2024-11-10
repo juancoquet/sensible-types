@@ -22,9 +22,15 @@ def test_init_from_float_whole_number_gt_0_succeeds():
     i = PositiveInt(1.0)
     assert isinstance(i, PositiveInt)
 
+
 def test_init_from_negative_float_raises():
     with pytest.raises(ValueError):
         PositiveInt(-1.0)
+
+
+def test_init_from_0_float_succeeds():
+    i = PositiveInt(0.0)
+    assert isinstance(i, PositiveInt)
 
 
 def test_init_from_non_integer_float_floors():
