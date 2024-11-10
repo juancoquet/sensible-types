@@ -132,3 +132,10 @@ def test_pos_int_imul_neg_float_raises():
     b = -3.0
     with pytest.raises(ValueError):
         a *= b
+
+
+def test_pos_int_imul_invalid_type_raises():
+    a = PositiveInt(2)
+    b = "3"
+    with pytest.raises(TypeError):
+        a *= b

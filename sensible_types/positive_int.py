@@ -157,7 +157,12 @@ class PositiveInt:
     def __rmul__(self, other: Y) -> Y:
         return other * self.__value  # type: ignore
 
-    def __imul__(self, other: T) -> Self:
+    def __imul__(self, other: Union[int, float, Self]) -> Self:
+        if not isinstance(other, (int, float, PositiveInt)):
+            raise TypeError(
+                "Cannot perform in-pace multiplication between a PositiveInt and type: "
+                f"{type(other)}"
+            )
         other_val = other.__value if isinstance(other, PositiveInt) else other
         if self.__value * other_val < 0:
             raise ValueError(
