@@ -97,7 +97,6 @@ class PositiveInt:
     def __sub__(self, other: float) -> float: ...
     @overload
     def __sub__(self, other: Self) -> int: ...
-
     def __sub__(self, other: T) -> Union[int, float]:
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
@@ -138,7 +137,6 @@ class PositiveInt:
     def __mul__(self, other: List[X]) -> List[X]: ...
     @overload
     def __mul__(self, other: Tuple[X]) -> Tuple[X]: ...
-
     def __mul__(self, other: Y) -> Y:
         if not isinstance(other, (int, float, PositiveInt, Sequence)):
             return NotImplemented
@@ -146,3 +144,18 @@ class PositiveInt:
         if isinstance(other, PositiveInt):
             return PositiveInt(self.__value * other.__value)
         return self.__value * other  # type: ignore
+
+    @overload
+    def __rmul__(self, other: Self) -> Self: ...
+    @overload
+    def __rmul__(self, other: int) -> int: ...
+    @overload
+    def __rmul__(self, other: float) -> float: ...
+    @overload
+    def __rmul__(self, other: str) -> str: ...
+    @overload
+    def __rmul__(self, other: List[X]) -> List[X]: ...
+    @overload
+    def __rmul__(self, other: Tuple[X]) -> Tuple[X]: ...
+    def __rmul__(self, other: Y) -> Y:
+        return other * self.__value
