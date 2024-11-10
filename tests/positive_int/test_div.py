@@ -154,8 +154,16 @@ def test_pos_int_ifloordiv_valid_int_returns_pos_int():
     assert a == 2
 
 
-def test_int_ifloordiv_posit_returns_int():
+def test_int_ifloordiv_pos_int_returns_int():
     a = 5
+    b = PositiveInt(2)
+    a //= b
+    assert isinstance(a, int)
+    assert a == 2
+
+
+def test_float_ifloordiv_pos_int_returns_int():
+    a = 5.0
     b = PositiveInt(2)
     a //= b
     assert isinstance(a, int)
