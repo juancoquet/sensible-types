@@ -1,6 +1,7 @@
 from typing import Self, TypeVar, Union, overload
 
 T = TypeVar("T", int, float, "PositiveInt")
+U = TypeVar("U", int, float)
 
 
 class PositiveInt:
@@ -47,7 +48,18 @@ class PositiveInt:
             return NotImplemented
         return self.__value == other
 
-    # TODO: sub, mul, div, iadd, isub, imul, idiv lt, gt, lte, gte, for i in range(PostiveInt)
+    # TODO:
+    # radd
+    # rsub
+    # mul
+    # div
+    # imul
+    # idiv
+    # lt
+    # gt
+    # lte
+    # gte
+    # for i in range(PostiveInt)
 
     def __add__(self, other: T) -> T:
         # TODO: int/float + PositiveInt
@@ -56,6 +68,9 @@ class PositiveInt:
         if isinstance(other, PositiveInt):
             return PositiveInt(self.__value + other.__value)
         return self.__value + other
+
+    def __radd__(self, other: U) -> U:
+        return other + self.__value
 
     def __iadd__(self, other: Self) -> Self:
         # TODO: relax
@@ -66,8 +81,6 @@ class PositiveInt:
             )
         self.__value += other.__value
         return self
-
-    # TODO: radd
 
     @overload
     def __sub__(self, other: int) -> int: ...
@@ -100,5 +113,3 @@ class PositiveInt:
             )
         self.__value -= other_val
         return self
-
-    # TODO: rsub
