@@ -29,7 +29,7 @@ class PositiveInt:
                 f"Expected a whole number to be passed. Given: {value}."
                 "Use `floor=True` to perform a `math.floor` operation on input values."
             )
-        if value == float("inf"):
+        if value == float("inf") or value == float("-inf"):
             raise ValueError("PositiveInt cannot be created from Infinity.")
         self.__value = int(value)
 
