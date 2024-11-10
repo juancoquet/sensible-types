@@ -69,6 +69,15 @@ def test_ge_int():
     assert c >= d
 
 
+def test_ge_positive_float():
+    a = PositiveInt(2)
+    b = 1.0
+    assert a >= b
+    c = PositiveInt(1)
+    d = 1.0
+    assert c >= d
+
+
 def test_lt_positive_int():
     a = PositiveInt(2)
     b = PositiveInt(1)
