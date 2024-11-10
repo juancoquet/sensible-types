@@ -16,3 +16,8 @@ def test_init_from_int_0_succeeds():
 def test_init_from_negative_int_raises():
     with pytest.raises(ValueError):
         PositiveInt(-1)
+
+
+def test_init_from_float_whole_number_gt_0_succeeds():
+    i = PositiveInt(2.0)
+    assert isinstance(i, PositiveInt)
