@@ -13,6 +13,14 @@ def test_add_to_positive_int_returns_positive_int():
 
 def test_add_to_int_returns_int():
     a = PositiveInt(1)
+    b = 2
+    res = a + b
+    assert isinstance(res, int)
+    assert res == 3
+
+
+def test_add_to_float_returns_float():
+    a = PositiveInt(1)
     b = 2.0
     res = a + b
     assert isinstance(res, float)
