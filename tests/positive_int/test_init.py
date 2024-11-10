@@ -51,3 +51,8 @@ def test_init_from_infinity_raises():
 def test_init_from_neg_infinity_raises():
     with pytest.raises(ValueError):
         PositiveInt(float("-inf"))
+
+
+def test_init_from_invalid_type_raises():
+    with pytest.raises(TypeError):
+        PositiveInt("1")  # type: ignore
