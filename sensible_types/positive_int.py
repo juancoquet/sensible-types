@@ -194,5 +194,7 @@ class PositiveInt:
         raise TypeError("In-place division cannot be performed on a PositiveInt.")
 
     def __floordiv__(self, other: Union[int, float, Self]) -> int:
+        if not isinstance(other, (int, float, PositiveInt)):
+            return NotImplemented
         other_val = other.__value if isinstance(other, PositiveInt) else other
         return int(self.__value // other_val)
