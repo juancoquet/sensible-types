@@ -70,7 +70,7 @@ class PositiveInt:
     def __radd__(self, other: IF) -> IF:
         return other + self.__value
 
-    def __iadd__(self, other: IFP) -> Self:
+    def __iadd__(self, other: Union[int, float, Self]) -> Self:
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
         other_val = other.__value if isinstance(other, PositiveInt) else other
@@ -94,7 +94,7 @@ class PositiveInt:
     def __sub__(self, other: float) -> float: ...
     @overload
     def __sub__(self, other: Self) -> int: ...
-    def __sub__(self, other: IFP) -> Union[int, float]:
+    def __sub__(self, other: Union[int, float, Self]) -> Union[int, float]:
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
         if isinstance(other, PositiveInt):
