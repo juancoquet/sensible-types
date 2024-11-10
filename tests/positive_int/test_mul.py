@@ -40,3 +40,10 @@ def test_pos_int_mul_list_returns_repeated_list():
     b = ["3"]
     res = a * b
     assert res == ["3", "3"]
+
+
+def test_pos_int_mul_tuple_returns_repeated_tuple():
+    a = PositiveInt(2)
+    b = ("3",)
+    res = a * b
+    assert res == ("3", "3")
