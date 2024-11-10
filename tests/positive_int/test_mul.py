@@ -25,3 +25,10 @@ def test_pos_int_mul_float_returns_float():
     res = a * b
     assert isinstance(res, float)
     assert res == 6.0
+
+
+def test_pos_int_mul_invalid_type_raises():
+    a = PositiveInt(2)
+    b = "3"
+    with pytest.raises(TypeError):
+        a * b  # type: ignore
