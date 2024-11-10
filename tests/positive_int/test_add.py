@@ -27,6 +27,14 @@ def test_add_pos_int_to_int_returns_int():
     assert res == 3
 
 
+def test_add_pos_int_to_neg_int_returns_neg_int():
+    a = PositiveInt(1)
+    b = -2
+    res = b + a
+    assert isinstance(res, int)
+    assert res == -1
+
+
 def test_add_pos_int_to_float_returns_float():
     a = PositiveInt(1)
     b = 2.0
