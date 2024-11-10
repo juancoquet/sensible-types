@@ -68,3 +68,4 @@ class PositiveInt:
     def __sub__(self, other: T):  # TODO: return type
         if isinstance(other, PositiveInt):
             return self.__value - other.__value
+        return self.__value - other

@@ -1,5 +1,6 @@
 from sensible_types import PositiveInt
 
+
 def test_pos_int_sub_pos_int_returns_int():
     a = PositiveInt(1)
     b = PositiveInt(2)
@@ -10,14 +11,22 @@ def test_pos_int_sub_pos_int_returns_int():
     assert isinstance(res, int)
     assert res == -1
 
-# def test_add_to_positive_int_returns_positive_int():
-#     a = PositiveInt(1)
-#     b = PositiveInt(2)
-#     res = a + b
-#     assert isinstance(res, PositiveInt)
-#     assert res == PositiveInt(3)
-#
-#
+
+def test_pos_int_sub_int_returns_int():
+    a = PositiveInt(2)
+    b = 1
+    res = a - b
+    assert isinstance(res, int)
+    assert res == 1
+    a = PositiveInt(1)
+    b = 2
+    res = a - b
+    assert isinstance(res, int)
+    assert res == -1
+
+
+# TODO: int/float - PositiveInt
+
 # def test_add_to_int_returns_int():
 #     a = PositiveInt(1)
 #     b = 2
