@@ -129,6 +129,7 @@ def test_pos_int_ifloordiv_pos_int_returns_pos_int():
     assert isinstance(c, PositiveInt)
     assert c == 0
 
+
 def test_pos_int_ifloordiv_valid_int_returns_pos_int():
     a = PositiveInt(5)
     b = 2
@@ -150,3 +151,10 @@ def test_pos_int_ifloordiv_valid_float_returns_pos_int():
     a //= b
     assert isinstance(a, PositiveInt)
     assert a == 2
+
+
+def test_pos_int_ifloordiv_invalid_float_raises():
+    a = PositiveInt(5)
+    b = -2.0
+    with pytest.raises(ValueError):
+        a //= b
