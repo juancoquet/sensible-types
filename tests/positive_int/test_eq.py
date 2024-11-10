@@ -1,3 +1,4 @@
+import pytest
 from sensible_types import PositiveInt
 
 
@@ -121,3 +122,9 @@ def test_le_float():
     c = PositiveInt(1)
     d = 1.0
     assert d <= c
+
+
+def test_gt_invalid_type_false_raises():
+    a = PositiveInt(1)
+    with pytest.raises(TypeError):
+        a > "0"  # type: ignore
