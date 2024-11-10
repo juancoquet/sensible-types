@@ -1,9 +1,21 @@
 from sensible_types import PositiveInt
 
 
-def test_pos_int_div_pos_int_returns_float():
+def test_pos_int_truediv_valid_pos_int_returns_float():
     a = PositiveInt(6)
     b = PositiveInt(2)
     res = a / b
     assert isinstance(res, float)
     assert res == 3.0
+
+
+def test_pos_int_truediv_int_returns_float():
+    a = PositiveInt(6)
+    b = 2
+    res = a / b
+    assert isinstance(res, float)
+    assert res == 3.0
+
+
+def test_pos_int_truediv_invalid_pos_int_raises():
+    pass
