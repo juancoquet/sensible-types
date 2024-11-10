@@ -25,24 +25,22 @@ def test_pos_int_sub_int_returns_int():
     assert res == -1
 
 
+def test_pos_int_sub_float_returns_float():
+    a = PositiveInt(2)
+    b = 1.0
+    res = a - b
+    assert isinstance(res, float)
+    assert res == 1.0
+    a = PositiveInt(1)
+    b = 2.0
+    res = a - b
+    assert isinstance(res, float)
+    assert res == -1.0
+
+
 # TODO: int/float - PositiveInt
 
-# def test_add_to_int_returns_int():
-#     a = PositiveInt(1)
-#     b = 2
-#     res = a + b
-#     assert isinstance(res, int)
-#     assert res == 3
-#
-#
-# def test_add_to_float_returns_float():
-#     a = PositiveInt(1)
-#     b = 2.0
-#     res = a + b
-#     assert isinstance(res, float)
-#     assert res == 3.0
-#
-#
+
 # def test_add_to_invalid_type_raises():
 #     a = PositiveInt(1)
 #     b = "2"
