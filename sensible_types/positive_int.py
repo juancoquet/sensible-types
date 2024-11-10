@@ -181,5 +181,5 @@ class PositiveInt:
         other_val = other.__value if isinstance(other, PositiveInt) else other
         return self.__value / other_val
 
-    def __rtruediv__(self, other: int) -> float:
+    def __rtruediv__(self, other: Union[int, float, Self]) -> float:
         return other / self.__value
