@@ -17,5 +17,13 @@ def test_pos_int_truediv_int_returns_float():
     assert res == 3.0
 
 
+def test_pos_int_truediv_float_returns_float():
+    a = PositiveInt(6)
+    b = 2.0
+    res = a / b
+    assert isinstance(res, float)
+    assert res == 3.0
+
+
 def test_pos_int_truediv_invalid_pos_int_raises():
     pass
