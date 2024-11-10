@@ -84,6 +84,8 @@ class PositiveInt:
         return self.__value - other
 
     def __isub__(self, other: Union[int, float, Self]) -> Self:
+        if not isinstance(other, (int, float, PositiveInt)):
+            return NotImplemented
         if isinstance(other, PositiveInt):
             if other.__value > self.__value:
                 raise ValueError(

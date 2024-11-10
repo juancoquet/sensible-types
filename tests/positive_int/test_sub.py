@@ -99,4 +99,12 @@ def test_isub_float_that_would_cause_neg_value_raises():
         a -= b
 
 
+def test_isub_invalid_type_raises():
+    a = PositiveInt(1)
+    b = "1"
+    with pytest.raises(TypeError):
+        a -= b  # type: ignore
+
+
+# TODO: isub to 0
 # TODO: int/float - PositiveInt
