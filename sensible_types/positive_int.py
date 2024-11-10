@@ -176,5 +176,7 @@ class PositiveInt:
         return self
 
     def __truediv__(self, other: Union[int, float, Self]) -> float:
+        if not isinstance(other, (int, float, PositiveInt)):
+            return NotImplemented
         other_val = other.__value if isinstance(other, PositiveInt) else other
         return self.__value / other_val

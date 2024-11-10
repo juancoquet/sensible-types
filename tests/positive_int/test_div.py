@@ -1,3 +1,4 @@
+import pytest
 from sensible_types import PositiveInt
 
 
@@ -25,5 +26,8 @@ def test_pos_int_truediv_float_returns_float():
     assert res == 3.0
 
 
-def test_pos_int_truediv_invalid_pos_int_raises():
-    pass
+def test_pos_int_truediv_invalid_type_raises():
+    a = PositiveInt(6)
+    b = "2.0"
+    with pytest.raises(TypeError):
+        a / b  # type: ignore
