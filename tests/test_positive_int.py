@@ -28,6 +28,11 @@ def test_eq_to_int():
     assert i == 1
 
 
+def test_eq_to_valid_float():
+    i = PositiveInt(1)
+    assert i == 1.0
+
+
 def test_eq_to_invalid_type_not_implemented():
     i = PositiveInt(1)
     res = i == "1"
