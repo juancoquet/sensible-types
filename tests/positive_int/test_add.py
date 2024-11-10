@@ -61,3 +61,9 @@ def test_iadd_to_int_raises():
     a = PositiveInt(1)
     with pytest.raises(TypeError):
         a += 2
+
+
+def test_iadd_to_float_raises():
+    a = PositiveInt(1)
+    with pytest.raises(TypeError):
+        a += 2.0
