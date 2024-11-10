@@ -49,11 +49,12 @@ class PositiveInt:
         return self.__value == other
 
     # TODO:
-    # rsub
-    # mul
-    # div
+    # mul – remember overloads for collections
     # imul
+    # rmul
+    # div
     # idiv
+    # rdiv
     # lt
     # gt
     # lte
@@ -61,7 +62,6 @@ class PositiveInt:
     # for i in range(PostiveInt)
 
     def __add__(self, other: T) -> T:
-        # TODO: int/float + PositiveInt
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
         if isinstance(other, PositiveInt):
