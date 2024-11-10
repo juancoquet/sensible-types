@@ -62,12 +62,14 @@ def test_pos_int_itruediv_pos_int_raises():
     with pytest.raises(TypeError):
         a /= b  # type: ignore
 
+
 def test_int_itruediv_pos_int_returns_float():
     a = 5
     b = PositiveInt(2)
     a /= b
     assert isinstance(a, float)
     assert a == 2.5
+
 
 def test_float_itruediv_pos_int_returns_float():
     a = 5.0
@@ -149,6 +151,14 @@ def test_pos_int_ifloordiv_valid_int_returns_pos_int():
     b = 2
     a //= b
     assert isinstance(a, PositiveInt)
+    assert a == 2
+
+
+def test_int_ifloordiv_posit_returns_int():
+    a = 5
+    b = PositiveInt(2)
+    a //= b
+    assert isinstance(a, int)
     assert a == 2
 
 
