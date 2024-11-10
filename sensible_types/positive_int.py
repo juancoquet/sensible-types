@@ -19,6 +19,7 @@ class PositiveInt:
           - If `floor` is `False` and the input `value` is not a whole number. Note that whole number
             `float` types such as `2.0` are valid.
         """
+
         if value < 0:
             raise ValueError(
                 f"A PositiveInt cannot be created from a number < 0. Value passed: {value}."
