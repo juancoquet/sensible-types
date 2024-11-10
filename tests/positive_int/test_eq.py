@@ -38,7 +38,26 @@ def test_gt_positive_int():
     b = PositiveInt(1)
     assert a > b
 
+
+def test_ge_positive_int():
+    a = PositiveInt(2)
+    b = PositiveInt(1)
+    assert a >= b
+    c = PositiveInt(1)
+    d = PositiveInt(1)
+    assert c >= d
+
+
 def test_lt_positive_int():
     a = PositiveInt(2)
     b = PositiveInt(1)
     assert b < a
+
+
+def test_le_positive_int():
+    a = PositiveInt(2)
+    b = PositiveInt(1)
+    assert b <= a
+    c = PositiveInt(1)
+    d = PositiveInt(1)
+    assert d <= c

@@ -1,3 +1,4 @@
+from functools import total_ordering
 from typing import Any, List, Self, Sequence, Tuple, TypeVar, Union, overload
 
 T = TypeVar("T")
@@ -6,6 +7,7 @@ IFP = TypeVar("IFP", int, float, "PositiveInt")
 IFPS = TypeVar("IFPS", int, float, "PositiveInt", Sequence)
 
 
+@total_ordering
 class PositiveInt:
     def __init__(self, value: Union[int, float], floor: bool = True):
         """
