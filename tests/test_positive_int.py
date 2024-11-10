@@ -33,7 +33,11 @@ def test_eq_to_valid_float():
     assert i == 1.0
 
 
+def test_eq_to_invalid_float():
+    i = PositiveInt(1)
+    assert not i == 1.5
+
+
 def test_eq_to_invalid_type_not_implemented():
     i = PositiveInt(1)
-    res = i == "1"
-    assert res == False  # noqa
+    assert not i == "1"
