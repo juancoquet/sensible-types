@@ -92,4 +92,11 @@ def test_isub_int_that_would_cause_neg_value_raises():
         a -= b
 
 
+def test_isub_float_that_would_cause_neg_value_raises():
+    a = PositiveInt(1)
+    b = 2.0
+    with pytest.raises(ValueError):
+        a -= b
+
+
 # TODO: int/float - PositiveInt
