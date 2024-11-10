@@ -35,6 +35,14 @@ def test_pos_int_mul_float_returns_float():
     assert res == 6.0
 
 
+def test_pos_int_mul_neg_float_returns_neg_float():
+    a = PositiveInt(2)
+    b = -3.0
+    res = a * b
+    assert isinstance(res, float)
+    assert res == -6.0
+
+
 def test_pos_int_mul_invalid_type_raises():
     a = PositiveInt(2)
     b = "3"
