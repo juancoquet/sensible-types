@@ -47,6 +47,8 @@ class PositiveInt:
 
     # TODO: add, sub, mul, div, iadd, isub, imul, idiv lt, gt, lte, gte, for i in range(PostiveInt)
     def __add__(self, other: Union[int, float, Self]) -> Union[int, float, "PositiveInt"]:
+        if not isinstance(other, (int, float, PositiveInt)):
+            return NotImplemented
         if isinstance(other, PositiveInt):
             return PositiveInt(self.__value + other.__value)
         return self.__value + other
