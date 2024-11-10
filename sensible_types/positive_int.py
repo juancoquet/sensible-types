@@ -63,6 +63,9 @@ class PositiveInt:
     def __index__(self) -> int:
         return self.__value
 
+    def __hash__(self) -> int:
+        return hash(self.__value)
+
     def __add__(self, other: IFP) -> IFP:
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
