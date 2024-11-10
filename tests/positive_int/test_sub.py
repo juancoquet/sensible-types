@@ -63,6 +63,14 @@ def test_isub_valid_int_succeeds():
     assert a == 1
 
 
+def test_isub_valid_float_succeeds():
+    a = PositiveInt(2)
+    b = 1.0
+    a -= b
+    assert isinstance(a, PositiveInt)
+    assert a == 1
+
+
 def test_isub_pos_int_that_would_cause_neg_value_raises():
     a = PositiveInt(1)
     b = PositiveInt(2)
