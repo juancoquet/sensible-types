@@ -51,9 +51,7 @@ class PositiveInt:
         return self.__value == other
 
     # TODO:
-    # mul – remember overloads for collections
     # imul
-    # rmul
     # div
     # idiv
     # rdiv
@@ -158,3 +156,5 @@ class PositiveInt:
     def __rmul__(self, other: Tuple[X]) -> Tuple[X]: ...
     def __rmul__(self, other: Y) -> Y:
         return other * self.__value  # type: ignore
+
+    # def __imul__(self, other: T)
