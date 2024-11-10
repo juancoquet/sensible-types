@@ -1,3 +1,6 @@
+from typing import Self, Union
+
+
 class PositiveInt:
     def __init__(self, value: int | float, floor: bool = True):
         """
@@ -41,3 +44,8 @@ class PositiveInt:
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
         return self.__value == other
+
+    # TODO: add, sub, mul, div, iadd, isub, imul, idiv lt, gt, lte, gte, for i in range(PostiveInt)
+    def __add__(self, other: Union[int, float, Self]) -> Union[int, float, "PositiveInt"]:
+        if isinstance(other, PositiveInt):
+            return PositiveInt(self.__value + other.__value)
