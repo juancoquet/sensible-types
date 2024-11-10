@@ -101,7 +101,9 @@ def test_iadd_float_raises():
         a += 2.0
 
 
-# def test_iadd_pos_int_to_int_returns_int():
-#     a = 1
-#     b = PositiveInt(2)
-#     a += b
+def test_iadd_pos_int_to_int_returns_int():
+    a = 1
+    b = PositiveInt(2)
+    a += b
+    assert isinstance(a, int)
+    assert a == 3
