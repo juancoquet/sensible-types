@@ -75,6 +75,11 @@ class PositiveInt:
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
         other_val = other.__value if isinstance(other, PositiveInt) else other
+        if not other_val.is_integer():
+            raise ValueError(
+                "Cannot perform in-place addition on a PositiveInt if the added value is "
+                f"not a whole number. Added value: {other_val}"
+            )
         if self.__value + other_val < 0:
             raise ValueError(
                 "Cannot perform in-place addition on a PositiveInt if the result would be a "

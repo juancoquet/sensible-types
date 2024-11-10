@@ -115,7 +115,10 @@ def test_iadd_float_raises_if_would_be_negative_value():
         a += -2.0
 
 
-# todo: non int float
+def test_iadd_float_raises_if_would_be_non_int_value():
+    a = PositiveInt(3)
+    with pytest.raises(ValueError):
+        a += 1.5
 
 
 def test_iadd_pos_int_to_int_returns_int():
