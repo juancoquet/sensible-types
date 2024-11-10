@@ -134,3 +134,15 @@ def test_gte_invalid_type_false_raises():
     a = PositiveInt(1)
     with pytest.raises(TypeError):
         a >= "0"  # type: ignore
+
+
+def test_lt_invalid_type_false_raises():
+    a = PositiveInt(1)
+    with pytest.raises(TypeError):
+        a < "0"  # type: ignore
+
+
+def test_lte_invalid_type_false_raises():
+    a = PositiveInt(1)
+    with pytest.raises(TypeError):
+        a <= "0"  # type: ignore
