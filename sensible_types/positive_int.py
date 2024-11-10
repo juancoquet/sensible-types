@@ -49,7 +49,6 @@ class PositiveInt:
         return self.__value == other
 
     # TODO:
-    # radd
     # rsub
     # mul
     # div
@@ -72,14 +71,11 @@ class PositiveInt:
     def __radd__(self, other: U) -> U:
         return other + self.__value
 
-    def __iadd__(self, other: Self) -> Self:
-        # TODO: relax
-        if not isinstance(other, PositiveInt):
-            raise TypeError(
-                "PositiveInt in-place addition is only supported with another PositiveInt. "
-                f"Type passed: {type(other)}"
-            )
-        self.__value += other.__value
+    def __iadd__(self, other: T) -> Self:
+        if not isinstance(other, (int, float, PositiveInt)):
+            return NotImplemented
+        other_val = other.__value if isinstance(other, PositiveInt) else other
+        self.__value += other_val
         return self
 
     @overload

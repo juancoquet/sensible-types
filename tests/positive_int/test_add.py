@@ -89,10 +89,11 @@ def test_iadd_pos_int_succeeds():
     assert a == 3
 
 
-def test_iadd_int_raises():
+def test_iadd_to_valid_int_succeeds():
     a = PositiveInt(1)
-    with pytest.raises(TypeError):
-        a += 2
+    a += 2
+    assert isinstance(a, PositiveInt)
+    assert a == 3
 
 
 def test_iadd_float_raises():
