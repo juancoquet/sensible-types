@@ -40,3 +40,9 @@ def test_add_to_neg_int_returns_neg_int():
     res = a + b
     assert isinstance(res, int)
     assert res == -1
+def test_add_to_neg_float_returns_neg_float():
+    a = PositiveInt(1)
+    b = -2.0
+    res = a + b
+    assert isinstance(res, float)
+    assert res == -1.0
