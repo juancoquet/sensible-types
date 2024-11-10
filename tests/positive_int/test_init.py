@@ -41,3 +41,8 @@ def test_init_from_non_integer_float_floors():
 def test_init_non_integer_float_with_floor_disabled_raises():
     with pytest.raises(ValueError):
         PositiveInt(1.9, floor=False)
+
+
+def test_init_from_infinity_raises():
+    with pytest.raises(ValueError):
+        PositiveInt(float("inf"))
