@@ -95,6 +95,14 @@ def test_pos_int_floordiv_float_returns_int():
     assert res == 2
 
 
+def test_float_floordiv_pos_int_returns_int():
+    a = PositiveInt(2)
+    b = 5.0
+    res = b // a
+    assert isinstance(res, int)
+    assert res == 2
+
+
 def test_pos_int_floordiv_invalid_type_raises():
     a = PositiveInt(5)
     b = "3.0"
