@@ -123,3 +123,7 @@ class PositiveInt:
             )
         self.__value -= other_val
         return self
+
+    def __mul__(self, other: T) -> T:
+        if isinstance(other, PositiveInt):
+            return PositiveInt(self.__value * other.__value)
