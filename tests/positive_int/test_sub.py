@@ -71,6 +71,13 @@ def test_isub_valid_float_succeeds():
     assert a == 1
 
 
+def test_isub_invalid_float_raises():
+    a = PositiveInt(2)
+    b = 1.5
+    with pytest.raises(ValueError):
+        a -= b
+
+
 def test_isub_pos_int_that_would_cause_neg_value_raises():
     a = PositiveInt(1)
     b = PositiveInt(2)

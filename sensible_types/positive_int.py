@@ -93,6 +93,11 @@ class PositiveInt:
                 )
             self.__value -= other.__value
             return self
+        if not other.is_integer():
+            raise ValueError(
+                "Cannot perform in-place subtraction on a PositiveInt if the subtracted value is "
+                f"not a whole number. Subtracted value: {other}"
+            )
         self.__value -= other
         return self
 
