@@ -98,6 +98,12 @@ class PositiveInt:
                 "Cannot perform in-place subtraction on a PositiveInt if the subtracted value is "
                 f"not a whole number. Subtracted value: {other}"
             )
+        if other > self.__value:
+            raise ValueError(
+                "Cannot perform in-place subtraction on a PositiveInt if the result would be a "
+                "negative number. "
+                f"PositiveInt value: {self.__value} subtracted value: {other}."
+            )
         self.__value -= other
         return self
 
