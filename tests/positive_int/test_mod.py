@@ -55,3 +55,11 @@ def test_invalid_type_mod_pos_int_raises():
     b = PositiveInt(2)
     with pytest.raises(TypeError):
         a % b  # type: ignore
+
+
+def test_pos_int_imod_pos_int_returns_int():
+    a = PositiveInt(5)
+    b = PositiveInt(2)
+    a %= b
+    assert isinstance(a, int)
+    assert a == 1

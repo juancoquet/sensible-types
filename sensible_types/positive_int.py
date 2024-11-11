@@ -242,6 +242,7 @@ class PositiveInt:
             return NotImplemented
         return int(other % self.__value)
 
+
     # TODO:
     # mod, imod, rmod
     # pow, ipow, rpow
