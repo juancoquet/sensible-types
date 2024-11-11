@@ -78,3 +78,9 @@ def test_int_imod_pos_int_returns_int():
     res = a % b
     assert isinstance(res, int)
     assert res == 1
+
+def test_pos_int_imod_float_raises():
+    a = PositiveInt(5)
+    b = -2.0
+    with pytest.raises(TypeError):
+        a %= b
