@@ -256,8 +256,10 @@ class PositiveInt:
         self.__value %= other.__value
         return self
 
-    def __pow__(self, other: Self) -> "PositiveInt":
-        return PositiveInt(self.__value**other.__value)
+    def __pow__(self, other: Union[int, Self]) -> Union[int, "PositiveInt"]:
+        if isinstance(other, PositiveInt):
+            return PositiveInt(self.__value**other.__value)
+        return self.__value ** other
 
     # TODO:
     # pow, ipow, rpow
