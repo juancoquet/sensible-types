@@ -93,3 +93,10 @@ def test_float_imod_pos_int_returns_int():
     a %= b
     assert isinstance(a, int)
     assert a == 1
+
+
+def test_pos_int_imod_invalid_type_raises():
+    a = PositiveInt(5)
+    b = "2"
+    with pytest.raises(TypeError):
+        a %= b  # type: ignore
