@@ -268,8 +268,9 @@ class PositiveInt:
             return NotImplemented
         return other**self.__value  # type: ignore
 
-    def __ipow__(self, other: Self) -> Self:
-        self.__value **= other.__value
+    def __ipow__(self, other: Union[int, Self]) -> Self:
+        other_val = other.__value if isinstance(other, PositiveInt) else other
+        self.__value **= other_val
         return self
 
     # TODO:

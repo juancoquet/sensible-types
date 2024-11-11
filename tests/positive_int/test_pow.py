@@ -63,3 +63,10 @@ def test_pos_int_ipow_pos_int_returns_pos_int():
     a **= b
     assert isinstance(a, PositiveInt)
     assert a == 25
+
+def test_pos_int_ipow_valid_int_returns_pos_int():
+    a = PositiveInt(5)
+    b = 2
+    a **= b
+    assert isinstance(a, PositiveInt)
+    assert a == 25
