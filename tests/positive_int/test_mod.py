@@ -63,3 +63,10 @@ def test_pos_int_imod_pos_int_returns_pos_int():
     a %= b
     assert isinstance(a, PositiveInt)
     assert a == 1
+
+
+def test_pos_int_imod_int_raises():
+    a = PositiveInt(5)
+    b = -2
+    with pytest.raises(TypeError):
+        a %= b

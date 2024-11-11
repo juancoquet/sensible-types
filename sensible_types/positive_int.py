@@ -243,6 +243,8 @@ class PositiveInt:
         return int(other % self.__value)
 
     def __imod__(self, other: Self) -> Self:
+        if not isinstance(other, PositiveInt):
+            raise TypeError("In-place mod cannot be performed on a PositiveInt.")
         self.__value %= other.__value
         return self
 
