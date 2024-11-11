@@ -216,7 +216,7 @@ class PositiveInt:
     def __floordiv__(self, other: float) -> int: ...
     @overload
     def __floordiv__(self, other: Self) -> Self: ...
-    def __floordiv__(self, other: Union[int, float, Self]) -> Union[int,  "PositiveInt"]:
+    def __floordiv__(self, other: Union[int, float, Self]) -> Union[int, "PositiveInt"]:
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
         if isinstance(other, PositiveInt):
@@ -257,5 +257,4 @@ class PositiveInt:
         return self
 
     # TODO:
-    # mod, imod, rmod
     # pow, ipow, rpow
