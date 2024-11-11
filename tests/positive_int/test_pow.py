@@ -48,3 +48,10 @@ def test_pos_int_pow_invalid_type_raises():
     b = "2"
     with pytest.raises(TypeError):
         a**b  # type: ignore
+
+
+def test_invalid_type_pow_pos_int_raies():
+    a = "5"
+    b = PositiveInt(2)
+    with pytest.raises(TypeError):
+        a**b  # type: ignore

@@ -264,6 +264,8 @@ class PositiveInt:
         return self.__value**other
 
     def __rpow__(self, other: IF) -> IF:
+        if not isinstance(other, (int, float)):
+            return NotImplemented
         return other**self.__value  # type: ignore
 
     # TODO:
