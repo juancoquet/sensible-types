@@ -235,6 +235,9 @@ class PositiveInt:
         other_val = other.__value if isinstance(other, PositiveInt) else other
         return self.__value % other_val
 
+    def __rmod__(self, other: int) -> int:
+        return other % self.__value
+
     # TODO:
     # mod, imod, rmod
     # pow, ipow, rpow
