@@ -261,7 +261,10 @@ class PositiveInt:
             return NotImplemented
         if isinstance(other, PositiveInt):
             return PositiveInt(self.__value**other.__value)
-        return self.__value ** other
+        return self.__value**other
+
+    def __rpow__(self, other: int) -> int:
+        return other**self.__value
 
     # TODO:
     # pow, ipow, rpow
