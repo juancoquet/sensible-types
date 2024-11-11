@@ -257,6 +257,8 @@ class PositiveInt:
         return self
 
     def __pow__(self, other: IFP) -> IFP:
+        if not isinstance(other, (int, float, PositiveInt)):
+            return NotImplemented
         if isinstance(other, PositiveInt):
             return PositiveInt(self.__value**other.__value)
         return self.__value ** other

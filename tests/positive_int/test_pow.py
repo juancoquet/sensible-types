@@ -24,3 +24,10 @@ def test_pos_int_pow_float_returns_float():
     res = a ** b
     assert isinstance(res, float)
     assert res == 25.0
+
+
+def test_pos_int_pow_invalid_type_raises():
+    a = PositiveInt(5)
+    b = "2"
+    with pytest.raises(TypeError):
+        a ** b  # type: ignore
