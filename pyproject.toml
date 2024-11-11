@@ -1,8 +1,11 @@
 [project]
 name = "sensible-types"
 version = "0.1.0"
-description = "Add your description here"
+description = "A collection of useful types for Python, to drive correctness in your programs."
 readme = "README.md"
+authors = [
+    { name = "Juan Coquet", email = "69824312+juancoquet@users.noreply.github.com" }
+]
 requires-python = ">=3.12"
 dependencies = []
 
@@ -13,5 +16,6 @@ dev = [
     "ruff>=0.7.3",
 ]
 
-[tool.ruff]
-line-length=100
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
