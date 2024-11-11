@@ -242,6 +242,9 @@ class PositiveInt:
             return NotImplemented
         return int(other % self.__value)
 
+    def __imod__(self, other: Self) -> Self:
+        self.__value %= other.__value
+        return self
 
     # TODO:
     # mod, imod, rmod

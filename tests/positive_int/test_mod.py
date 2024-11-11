@@ -57,9 +57,9 @@ def test_invalid_type_mod_pos_int_raises():
         a % b  # type: ignore
 
 
-def test_pos_int_imod_pos_int_returns_int():
+def test_pos_int_imod_pos_int_returns_pos_int():
     a = PositiveInt(5)
     b = PositiveInt(2)
     a %= b
-    assert isinstance(a, int)
+    assert isinstance(a, PositiveInt)
     assert a == 1
