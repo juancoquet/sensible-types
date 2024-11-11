@@ -1,3 +1,5 @@
+import pytest
+
 from sensible_types import PositiveInt
 
 
@@ -39,3 +41,10 @@ def test_float_mod_pos_int_returns_int():
     res = a % b
     assert isinstance(res, int)
     assert res == 1
+
+
+def test_pos_int_mod_invalid_type_raises():
+    a = PositiveInt(5)
+    b = "2"
+    with pytest.raises(TypeError):
+        a % b
