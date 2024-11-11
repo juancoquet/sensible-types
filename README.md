@@ -42,6 +42,6 @@ You're right.
 
 But that doesn't mean that _you_, the developer, should not care about the correctness and reliability of your program.
 
-You should be using strict type checking tools like [Pyright](https://github.com/microsoft/pyright) to analyse your code. Without such a tool, all the type-driven design in the world won't save you from Python.
+You should be using strict type checking tools like [Pyright](https://github.com/microsoft/pyright) to analyse your code. Without such tools, all the type-driven design in the world won't save you from Python.
 
 There still won't be anything stopping your program from running if you pass in an incorrect type, but at least you'll see errors in you IDE if you've written incorrect code.
