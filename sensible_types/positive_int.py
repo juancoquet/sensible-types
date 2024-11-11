@@ -256,5 +256,8 @@ class PositiveInt:
         self.__value %= other.__value
         return self
 
+    def __pow__(self, other: Self) -> "PositiveInt":
+        return PositiveInt(self.__value**other.__value)
+
     # TODO:
     # pow, ipow, rpow
