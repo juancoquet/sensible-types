@@ -85,12 +85,12 @@ class PositiveInt:
             return NotImplemented
         if isinstance(other, PositiveInt):
             return PositiveInt(self.__value + other.__value)
-        return self.__value + other
+        return self.__value + other  # type: ignore
 
     def __radd__(self, other: IF) -> IF:
         if not isinstance(other, (int, float)):
             return NotImplemented
-        return other + self.__value
+        return other + self.__value  # type: ignore
 
     def __iadd__(self, other: Union[int, float, Self]) -> Self:
         if not isinstance(other, (int, float, PositiveInt)):
@@ -126,7 +126,7 @@ class PositiveInt:
     def __rsub__(self, other: IF) -> IF:
         if not isinstance(other, (int, float)):
             return NotImplemented
-        return other - self.__value
+        return other - self.__value  # type: ignore
 
     def __isub__(self, other: Union[int, float, Self]) -> Self:
         if not isinstance(other, (int, float, PositiveInt)):
