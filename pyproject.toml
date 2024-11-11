@@ -22,3 +22,6 @@ build-backend = "hatchling.build"
 
 [tool.ruff]
 line-length = 100
+
+[project.urls]
+Repository = "https://github.com/juancoquet/sensible-types"
