@@ -23,3 +23,11 @@ def test_int_mod_pos_int_returns_int():
     res = a % b
     assert isinstance(res, int)
     assert res == 1
+
+
+def test_pos_int_mod_float_returns_int():
+    a = PositiveInt(6)
+    b = 2.5
+    res = a % b
+    assert isinstance(res, int)
+    assert res == 1
