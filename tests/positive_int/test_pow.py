@@ -70,3 +70,9 @@ def test_pos_int_ipow_valid_int_returns_pos_int():
     a **= b
     assert isinstance(a, PositiveInt)
     assert a == 25
+
+def test_pos_int_ipow_invalid_int_raises():
+    a = PositiveInt(5)
+    b = -2
+    with pytest.raises(ValueError):
+        a **= b

@@ -270,7 +270,15 @@ class PositiveInt:
 
     def __ipow__(self, other: Union[int, Self]) -> Self:
         other_val = other.__value if isinstance(other, PositiveInt) else other
-        self.__value **= other_val
+        res = self.__value**other_val
+        if not res.is_integer():
+            raise ValueError(
+                "Cannot perform in-place exponentiation on a PositiveInt if the "
+                "result would be a non-integer number. "
+                f"PositiveInt value: {self.__value}, other value: {other_val}."
+                f"Exponentiation result: {self.__value**other_val}"
+            )
+        self.__value = res
         return self
 
     # TODO:
