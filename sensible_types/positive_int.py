@@ -231,6 +231,9 @@ class PositiveInt:
         self.__value //= other_val
         return self
 
+    def __mod__(self, other: Self) -> int:
+        return self.__value % other.__value
+
     # TODO:
     # mod, imod, rmod
     # pow, ipow, rpow
