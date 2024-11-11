@@ -55,3 +55,11 @@ def test_invalid_type_pow_pos_int_raies():
     b = PositiveInt(2)
     with pytest.raises(TypeError):
         a**b  # type: ignore
+
+
+def test_pos_int_ipow_pos_int_returns_pos_int():
+    a = PositiveInt(5)
+    b = PositiveInt(2)
+    a **= b
+    assert isinstance(a, PositiveInt)
+    assert a == 25

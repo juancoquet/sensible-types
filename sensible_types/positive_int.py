@@ -268,5 +268,9 @@ class PositiveInt:
             return NotImplemented
         return other**self.__value  # type: ignore
 
+    def __ipow__(self, other: Self) -> Self:
+        self.__value **= other.__value
+        return self
+
     # TODO:
     # pow, ipow, rpow
