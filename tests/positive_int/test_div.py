@@ -2,7 +2,7 @@ import pytest
 from sensible_types import PositiveInt
 
 
-def test_pos_int_truediv_valid_pos_int_returns_float():
+def test_pos_int_truediv_pos_int_returns_float():
     a = PositiveInt(6)
     b = PositiveInt(2)
     res = a / b
@@ -63,6 +63,13 @@ def test_pos_int_itruediv_pos_int_raises():
         a /= b  # type: ignore
 
 
+def test_pos_int_itrue_div_int_raises():
+    a = PositiveInt(6)
+    b = 2
+    with pytest.raises(TypeError):
+        a /= b  # type: ignore
+
+
 def test_int_itruediv_pos_int_returns_float():
     a = 5
     b = PositiveInt(2)
@@ -83,7 +90,7 @@ def test_pos_int_floordiv_pos_int_returns_int():
     a = PositiveInt(5)
     b = PositiveInt(2)
     res = a // b
-    assert isinstance(res, int)
+    assert isinstance(res, PositiveInt)
     assert res == 2
 
 

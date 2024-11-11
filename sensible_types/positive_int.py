@@ -3,6 +3,7 @@ from typing import Any, List, Self, Sequence, Tuple, TypeVar, Union, overload
 
 T = TypeVar("T")
 IF = TypeVar("IF", int, float)
+IP = TypeVar("IP", int, "PositiveInt")
 IFP = TypeVar("IFP", int, float, "PositiveInt")
 IFPS = TypeVar("IFPS", int, float, "PositiveInt", Sequence)
 
@@ -209,11 +210,18 @@ class PositiveInt:
     def __itruediv__(self, _: Any):
         raise TypeError("In-place division cannot be performed on a PositiveInt.")
 
-    def __floordiv__(self, other: Union[int, float, Self]) -> int:
+    @overload
+    def __floordiv__(self, other: int) -> int: ...
+    @overload
+    def __floordiv__(self, other: float) -> int: ...
+    @overload
+    def __floordiv__(self, other: Self) -> Self: ...
+    def __floordiv__(self, other: Union[int, float, Self]) -> Union[int,  "PositiveInt"]:
         if not isinstance(other, (int, float, PositiveInt)):
             return NotImplemented
-        other_val = other.__value if isinstance(other, PositiveInt) else other
-        return int(self.__value // other_val)
+        if isinstance(other, PositiveInt):
+            return PositiveInt(self.__value // other.__value)
+        return int(self.__value // other)
 
     def __rfloordiv__(self, other: Union[int, float]) -> int:
         if not isinstance(other, (int, float)):
