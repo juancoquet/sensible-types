@@ -256,7 +256,7 @@ class PositiveInt:
         self.__value %= other.__value
         return self
 
-    def __pow__(self, other: Union[int, float, Self]) -> Union[int, "PositiveInt"]:
+    def __pow__(self, other: IFP) -> IFP:
         if isinstance(other, PositiveInt):
             return PositiveInt(self.__value**other.__value)
         return self.__value ** other
