@@ -35,6 +35,14 @@ def test_pos_int_pow_float_returns_float():
     assert res == 25.0
 
 
+def test_float_pow_pos_int_returns_float():
+    a = 5.0
+    b = PositiveInt(2)
+    res = a**b
+    assert isinstance(res, float)
+    assert res == 25.0
+
+
 def test_pos_int_pow_invalid_type_raises():
     a = PositiveInt(5)
     b = "2"

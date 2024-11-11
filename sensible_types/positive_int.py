@@ -263,8 +263,8 @@ class PositiveInt:
             return PositiveInt(self.__value**other.__value)
         return self.__value**other
 
-    def __rpow__(self, other: int) -> int:
-        return other**self.__value
+    def __rpow__(self, other: IF) -> IF:
+        return other**self.__value  # type: ignore
 
     # TODO:
     # pow, ipow, rpow
