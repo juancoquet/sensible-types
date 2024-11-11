@@ -93,3 +93,10 @@ def test_pos_int_ipow_invalid_float_raises():
     b = 2.5
     with pytest.raises(ValueError):
         a **= b
+
+def test_int_ipow_pos_int_returns_int():
+    a = 5
+    b = PositiveInt(2)
+    a **= b
+    assert isinstance(a, int)
+    assert a == 25
