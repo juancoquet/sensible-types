@@ -7,3 +7,11 @@ def test_pos_int_mod_pos_int_returns_int():
     res = a % b
     assert isinstance(res, int)
     assert res == 1
+
+
+def test_pos_int_mod_int_returns_int():
+    a = PositiveInt(5)
+    b = 2
+    res = a % b
+    assert isinstance(res, int)
+    assert res == 1

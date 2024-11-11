@@ -231,8 +231,9 @@ class PositiveInt:
         self.__value //= other_val
         return self
 
-    def __mod__(self, other: Self) -> int:
-        return self.__value % other.__value
+    def __mod__(self, other: Union[int, Self]) -> int:
+        other_val = other.__value if isinstance(other, PositiveInt) else other
+        return self.__value % other_val
 
     # TODO:
     # mod, imod, rmod
