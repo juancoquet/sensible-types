@@ -1,6 +1,6 @@
 [project]
 name = "sensible-types"
-version = "0.1.0"
+version = "0.1.1"
 description = "A collection of useful types for Python, to drive correctness in your programs."
 readme = "README.md"
 authors = [
