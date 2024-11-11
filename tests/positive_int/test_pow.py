@@ -64,6 +64,7 @@ def test_pos_int_ipow_pos_int_returns_pos_int():
     assert isinstance(a, PositiveInt)
     assert a == 25
 
+
 def test_pos_int_ipow_valid_int_returns_pos_int():
     a = PositiveInt(5)
     b = 2
@@ -71,11 +72,13 @@ def test_pos_int_ipow_valid_int_returns_pos_int():
     assert isinstance(a, PositiveInt)
     assert a == 25
 
+
 def test_pos_int_ipow_invalid_int_raises():
     a = PositiveInt(5)
     b = -2
     with pytest.raises(ValueError):
         a **= b
+
 
 def test_pos_int_ipow_valid_float_returns_pos_int():
     a = PositiveInt(5)
@@ -83,3 +86,10 @@ def test_pos_int_ipow_valid_float_returns_pos_int():
     a **= b
     assert isinstance(a, PositiveInt)
     assert a == 25
+
+
+def test_pos_int_ipow_invalid_float_raises():
+    a = PositiveInt(5)
+    b = 2.5
+    with pytest.raises(ValueError):
+        a **= b
