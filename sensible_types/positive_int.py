@@ -282,6 +282,3 @@ class PositiveInt:
             )
         self.__value = res
         return self
-
-    # TODO:
-    # pow, ipow, rpow
