@@ -1,6 +1,16 @@
 # Sensible Types
 A collection of useful types for Python, to drive correctness in your programs.
 
+## Installation
+
+```
+pip3 install sensible-types  # with pip
+poetry add sensible-types    # with poetry
+uv add sensible-types        # with uv
+```
+
+[View on PyPI.](https://pypi.org/project/sensible-types/)
+
 ## Why?
 
 > Parse, don't validate.
