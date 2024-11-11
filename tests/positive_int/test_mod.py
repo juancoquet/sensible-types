@@ -47,4 +47,11 @@ def test_pos_int_mod_invalid_type_raises():
     a = PositiveInt(5)
     b = "2"
     with pytest.raises(TypeError):
-        a % b
+        a % b  # type: ignore
+
+
+def test_invalid_type_mod_pos_int_raises():
+    a = "5"
+    b = PositiveInt(2)
+    with pytest.raises(TypeError):
+        a % b  # type: ignore

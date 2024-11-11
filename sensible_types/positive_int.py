@@ -238,6 +238,8 @@ class PositiveInt:
         return int(self.__value % other_val)
 
     def __rmod__(self, other: Union[int, float]) -> int:
+        if not isinstance(other, (int, float)):
+            return NotImplemented
         return int(other % self.__value)
 
     # TODO:
