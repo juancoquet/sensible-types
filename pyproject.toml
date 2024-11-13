@@ -1,18 +1,21 @@
 [project]
 name = "sensible-types"
-version = "0.1.2"
+version = "0.2.0"
 description = "A collection of useful types for Python, to drive correctness in your programs."
 readme = "README.md"
 authors = [
     { name = "Juan Coquet", email = "69824312+juancoquet@users.noreply.github.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pydantic>=2.9.2",
+]
 
 [dependency-groups]
 dev = [
     "pyright>=1.1.388",
     "pytest>=8.3.3",
+    "rich>=13.9.4",
     "ruff>=0.7.3",
 ]
 

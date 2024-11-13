@@ -1,6 +1,9 @@
 from functools import total_ordering
 from typing import Any, List, Self, Sequence, Tuple, TypeVar, Union, overload
 
+from pydantic import GetCoreSchemaHandler
+from pydantic_core import CoreSchema, core_schema
+
 T = TypeVar("T")
 IF = TypeVar("IF", int, float)
 IP = TypeVar("IP", int, "PositiveInt")
@@ -282,3 +285,9 @@ class PositiveInt:
             )
         self.__value = res
         return self
+
+    @classmethod
+    def __get_pydantic_core_schema__(
+        cls, source_type: Union[int, float], handler: GetCoreSchemaHandler
+    ) -> CoreSchema:
+        return core_schema.no_info_after_validator_function(cls, handler(int))
